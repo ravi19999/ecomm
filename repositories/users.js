@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 class UsersRepository {
     constructor(filename) {
         if (!filename) {
@@ -9,9 +10,19 @@ class UsersRepository {
         try {
             fs.accessSync(this.flename);
         } catch (err) {
-            fs.writeFileSync(this.filename);
+            fs.writeFileSync(this.filename, '[]');
         }
+    }
+
+    async getAll() {
+        const contents = await fs.promises.readFile(this.filename, { encoding: 'utf8' });
+        console.log(contents);
     }
 }
 
-const repo = new UsersRepository('users.json');
+const test = async () => {
+    const repo = new UsersRepository('users.json');
+    await repo.getAll();
+};
+
+test();
