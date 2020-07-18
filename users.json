@@ -21,5 +21,10 @@
     "email": "ravi@kavi.com",
     "password": "someone",
     "id": "8a573804"
+  },
+  {
+    "email": "test@test.com",
+    "password": "fc9f531d5a5caa5ea1c11ce5500aafa61bea5e59d004475d0e221b38edefcb0d9677d1204f965c62b31b413b3096b777d491750cc07918ff1d7b8992a19f333f.201cd87be689ef5a",
+    "id": "bfa115ef"
   }
 ]

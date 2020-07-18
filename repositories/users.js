@@ -1,5 +1,8 @@
 const fs = require("fs");
 const crypto = require("crypto");
+const util = require("util");
+
+const scrypt = util.promisify(crypto.scrypt);
 
 class UsersRepository {
   constructor(filename) {
@@ -26,12 +29,19 @@ class UsersRepository {
   async create(attrs) {
     attrs.id = this.randomId();
 
+    const salt = crypto.randomBytes(8).toString("hex");
+    const buf = await scrypt(attrs.password, salt, 64);
+
     const records = await this.getAll();
-    records.push(attrs);
+    const record = {
+      ...attrs,
+      password: `${buf.toString("hex")}.${salt}`,
+    };
+    records.push(record);
 
     await this.writeAll(records);
 
-    return attrs;
+    return record;
   }
 
   async writeAll(records) {
@@ -58,13 +68,13 @@ class UsersRepository {
 
   async update(id, attrs) {
     const records = await this.getAll();
-
     const record = records.find((record) => record.id === id);
+
     if (!record) {
-      throw new Error(`Record with ${id} not found`);
+      throw new Error(`Record with id ${id} not found`);
     }
 
-    Object.assign(record, attrs); //assign all the attributes of attrs to record
+    Object.assign(record, attrs);
     await this.writeAll(records);
   }
 
@@ -79,6 +89,7 @@ class UsersRepository {
           found = false;
         }
       }
+
       if (found) {
         return record;
       }
