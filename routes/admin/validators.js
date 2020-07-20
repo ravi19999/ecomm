@@ -17,7 +17,6 @@ module.exports = {
     .trim()
     .isLength({ min: 4, max: 20 })
     .withMessage("Must be between 4 and 20 characters"),
-
   requirePasswordConfirmation: check("passwordConfirmation")
     .trim()
     .isLength({ min: 4, max: 20 })
@@ -27,7 +26,6 @@ module.exports = {
         throw new Error("Passwords must match");
       }
     }),
-
   requireEmailExists: check("email")
     .trim()
     .normalizeEmail()
@@ -36,10 +34,9 @@ module.exports = {
     .custom(async (email) => {
       const user = await usersRepo.getOneBy({ email });
       if (!user) {
-        throw new Error("Email not found");
+        throw new Error("Email not found!");
       }
     }),
-
   requireValidPasswordForUser: check("password")
     .trim()
     .custom(async (password, { req }) => {
@@ -47,6 +44,7 @@ module.exports = {
       if (!user) {
         throw new Error("Invalid password");
       }
+
       const validPassword = await usersRepo.comparePasswords(
         user.password,
         password
