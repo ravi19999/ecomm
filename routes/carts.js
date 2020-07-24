@@ -46,4 +46,8 @@ router.get("/cart", async (req, res) => {
   res.send(cartShowTemplate({ items: cart.items }));
 });
 
+router.post("/carts/products/delete", async (req, res) => {
+  console.log(req.body.itemId);
+});
+
 module.exports = router;
