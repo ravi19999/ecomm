@@ -10,6 +10,8 @@ module.exports = ({ content }) => {
           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
           <link href="/css/main.css" rel="stylesheet">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
+
+          <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAJA1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAEQEQEAAAAAAAEREBAAAAAAAAAAEAAAAAEREREQAAAAEREREREAAAAQAAAAAQAAABAAAAABAAAAEAAAAAEAAAEQAAAAARAAAQAAAAAAEAABEREREREQAAAAAAAAABAAAAAAAAAAERAAAAAAAAABH73wAA8Y8AAPAPAADwDwAA/+8AAPAPAADgBwAA7/cAAO/3AADv9wAAz/MAAN/7AADAAwAA//sAAP/4AAD//AAA" rel="icon" type="image/x-icon" />
         </head>
   
         <body>
