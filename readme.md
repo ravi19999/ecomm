@@ -1,5 +1,5 @@
 # Ecomm
-## Ecommerce app built with NodeJS and Bulma CSS
+## Full stack ecommerce app built with NodeJS and Bulma CSS
 
 - Express server.
 - Custom database.
@@ -7,3 +7,11 @@
 - Admin panel.
 - Custom express middlewares.
 - Deployed at https://ecommercedd.herokuapp.com/
+
+#### Run locally
+```
+- git clone 
+- cd Ecomm
+- npm run dev
+
+```
